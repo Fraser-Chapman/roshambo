@@ -10,7 +10,30 @@ function changePlayer(){
 
 function checkForWinner(){
     if( player1Move && player2Move ){
-        document.getElementById("winner").innerHTML = "Who wins!";
+
+        switch (player1Move) {
+            case player2Move:
+                document.getElementById("winner").innerHTML = "Draw!";
+                break;
+
+            case "rock":
+                document.getElementById("winner").innerHTML = player2Move === "paper" ? "Player 2 wins!" : "Player 1 wins!";
+                break;
+
+            case "scissors":
+                document.getElementById("winner").innerHTML = player2Move === "rock" ? "Player 2 wins!" : "Player 1 wins!";
+                break;
+
+            case "paper":
+                document.getElementById("winner").innerHTML = player2Move === "scissors" ? "Player 2 wins!" : "Player 1 wins!";
+                break;
+
+            default:
+                document.getElementById("winner").innerHTML = "An error occurred"
+
+
+        }
+
         resetGame();
     }
 }

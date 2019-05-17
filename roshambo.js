@@ -31,7 +31,6 @@ function checkForWinner(){
             default:
                 document.getElementById("winner").innerHTML = "An error occurred"
 
-
         }
 
         resetGame();

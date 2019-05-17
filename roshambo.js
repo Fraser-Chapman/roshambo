@@ -13,23 +13,23 @@ function checkForWinner(){
 
         switch (player1Move) {
             case player2Move:
-                document.getElementById("winner").innerHTML = "Draw!";
+                changeWinnerText("Draw");
                 break;
 
             case "rock":
-                document.getElementById("winner").innerHTML = player2Move === "paper" ? "Player 2 wins!" : "Player 1 wins!";
+                changeWinnerText(player2Move === "paper" ? "Player 2 wins!" : "Player 1 wins!");
                 break;
 
             case "scissors":
-                document.getElementById("winner").innerHTML = player2Move === "rock" ? "Player 2 wins!" : "Player 1 wins!";
+                changeWinnerText(player2Move === "rock" ? "Player 2 wins!" : "Player 1 wins!");
                 break;
 
             case "paper":
-                document.getElementById("winner").innerHTML = player2Move === "scissors" ? "Player 2 wins!" : "Player 1 wins!";
+                changeWinnerText(player2Move === "scissors" ? "Player 2 wins!" : "Player 1 wins!");
                 break;
 
             default:
-                document.getElementById("winner").innerHTML = "An error occurred"
+                changeWinnerText("An error occurred");
 
         }
 
@@ -50,4 +50,8 @@ function play(moveName) {
     }
     checkForWinner();
     changePlayer();
+}
+
+function changeWinnerText(winner) {
+    document.getElementById("winner").innerHTML = winner;
 }
